@@ -1,26 +1,32 @@
 class Player {
-  constructor(col, row) {
-    this.col = 0;
-    this.row = 0;
+  constructor() {
+    this.width = 50;
+    this.height = 50;
+    this.x = 10;
+    this.y = 10;
+    this.gravity = 0.2;
+    this.velocity = 1;
+    this.score = 0;
   }
 
   draw() {
-    image(game.playerImage, this.col, this.row, 50, 50);
+    this.y += this.velocity;
+    image(game.playerImage, this.x, this.y, this.width, this.height);
   }
 
   moveRight() {
-    this.col += 100;
+    this.x += 10;
   }
 
   moveLeft() {
-    this.col -= 100;
+    this.x -= 10;
   }
 
   moveUp() {
-    this.row -= 100;
+    this.y -= 10;
   }
 
   moveDown() {
-    this.row += 100;
+    this.y += 10;
   }
 }

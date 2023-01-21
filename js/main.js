@@ -13,22 +13,20 @@ function setup() {
 
 function draw() {
   game.draw();
+  this.playerInput();
 }
 
-function keyPressed() {
-  if (keyCode === 32) {
-    game.player.jump();
-  }
-  if (keyCode === 39) {
+function playerInput() {
+  if (keyIsDown(RIGHT_ARROW)) {
     game.player.moveRight();
   }
-  if (keyCode === 37) {
+  if (keyIsDown(LEFT_ARROW)) {
     game.player.moveLeft();
   }
-  if (keyCode === 38) {
+  if (keyIsDown(UP_ARROW)) {
     game.player.moveUp();
   }
-  if (keyCode === 40) {
+  if (keyIsDown(DOWN_ARROW)) {
     game.player.moveDown();
   }
 }

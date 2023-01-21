@@ -1,19 +1,22 @@
 class Game {
   constructor() {
     this.player = new Player();
-    this.obstacle = new Obstacle();
+    // this.obstacle = new Obstacle();
     this.playerImage;
-    this.treeImage;
     this.obstacles = [];
+    this.treeImage;
   }
 
   preload() {
-    this.playerImage = loadImage("./assets/skier.png");
+    this.playerImage = loadImage("./assets/skidown.png");
     this.treeImage = loadImage("./assets/tree.png");
   }
 
   drawGrid() {
     background("white");
+    stroke(51);
+    strokeWeight(4);
+    rect(0, 0, 600, 600);
   }
 
   draw() {
@@ -28,6 +31,18 @@ class Game {
     // Draw the obstacles
     this.obstacles.forEach(function (obstacle) {
       obstacle.draw();
+    });
+
+    // Filter the coins which are out of the canvas or had a collision
+    // We need an arrow function here, so that "this" has the right context (of the game object)
+    this.obstacles = this.obstacles.filter((obstacle) => {
+      console.log(this);
+
+      if (obstacle.collision(this.player) || obstacle.x < 0 - obstacle.width) {
+        return false;
+      } else {
+        return true;
+      }
     });
   }
 }
