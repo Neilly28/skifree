@@ -15,6 +15,11 @@ class Obstacle {
     image(game.treeImage, this.x, this.y, this.width, this.height);
   }
 
+  // crash() {
+  //   this.y = 0;
+  //   this.velocity = 0;
+  // }
+
   collision(playerInfo) {
     // // console.log("collision")
 

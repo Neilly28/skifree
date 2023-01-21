@@ -1,11 +1,11 @@
 class Player {
   constructor() {
-    this.width = 50;
-    this.height = 50;
+    this.width = 20;
+    this.height = 30;
     this.x = 10;
     this.y = 10;
     this.gravity = 0.2;
-    this.velocity = 1;
+    this.velocity = 0;
     this.score = 0;
   }
 
@@ -15,11 +15,13 @@ class Player {
   }
 
   moveRight() {
-    this.x += 10;
+    this.x += 1;
+    image(game.skiRight, this.x, this.y, this.width, this.height);
   }
 
   moveLeft() {
-    this.x -= 10;
+    this.x -= 1;
+    image(game.skiLeft, this.x, this.y, this.width, this.height);
   }
 
   moveUp() {

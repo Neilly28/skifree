@@ -3,12 +3,16 @@ class Game {
     this.player = new Player();
     // this.obstacle = new Obstacle();
     this.playerImage;
+    this.skiLeft;
+    this.skiRight;
     this.obstacles = [];
     this.treeImage;
   }
 
   preload() {
     this.playerImage = loadImage("./assets/skidown.png");
+    this.skiLeft = loadImage("./assets/skileft.png");
+    this.skiRight = loadImage("./assets/skiright.png");
     this.treeImage = loadImage("./assets/tree.png");
   }
 
@@ -38,11 +42,18 @@ class Game {
     this.obstacles = this.obstacles.filter((obstacle) => {
       console.log(this);
 
-      if (obstacle.collision(this.player) || obstacle.x < 0 - obstacle.width) {
+      if (obstacle.x < 0 - obstacle.width) {
         return false;
       } else {
         return true;
       }
     });
+
+    // this.obstacles.forEach((obstacle) => {
+    //   if (obstacle.collision(this.player)) {
+    //     frameRate(0);
+    //     this.draw();
+    //   }
+    // });
   }
 }
